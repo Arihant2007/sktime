@@ -3355,7 +3355,7 @@ class YfromX(_ReducerMixin, BaseForecaster):
         }
 
         params2 = {
-            "estimator": RandomForestRegressor(),
+            "estimator": RandomForestRegressor(random_state=42),
             "pooling": "global",  # all internal mtypes are tested across scenarios
         }
 

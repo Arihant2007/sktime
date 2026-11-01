@@ -411,9 +411,13 @@ class VARReduce(BaseForecaster):
             `create_test_instance` uses the first (or only) dictionary in `params`
         """
         from sklearn.ensemble import RandomForestRegressor
-        from sklearn.svm import SVR
+        from sklearn.linear_model import Ridge
 
-        params1 = {"lags": 2, "regressor": RandomForestRegressor()}
-        params2 = {"lags": 3, "regressor": SVR(kernel="rbf")}
+        params1 = {"lags": 2, "regressor": RandomForestRegressor(random_state=42)}
+        # sklearn's SVR mutates the global numpy RNG state internally
+        # (it does not expose a ``random_state`` parameter to control this),
+        # see sktime issue #11676. Ridge is used instead as it is deterministic
+        # and does not touch the global RNG.
+        params2 = {"lags": 3, "regressor": Ridge()}
 
         return [params1, params2]

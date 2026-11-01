@@ -164,7 +164,7 @@ class SplineTrendForecaster(_DelegatedForecaster):
                 "with_intercept": False,
             },
             {
-                "regressor": RandomForestRegressor(),
+                "regressor": RandomForestRegressor(random_state=42),
                 "n_knots": 4,
                 "degree": 1,
                 "knots": "quantile",
@@ -172,7 +172,7 @@ class SplineTrendForecaster(_DelegatedForecaster):
                 "with_intercept": True,
             },
             {
-                "regressor": RandomForestRegressor(),
+                "regressor": RandomForestRegressor(random_state=42),
                 "n_knots": 3,
                 "degree": 2,
                 "knots": "uniform",

@@ -361,19 +361,19 @@ class PolynomialTrendForecaster(BaseForecaster):
         params_list = [
             {},
             {
-                "regressor": RandomForestRegressor(),
+                "regressor": RandomForestRegressor(random_state=42),
                 "degree": 2,
                 "with_intercept": False,
                 "prediction_intervals": False,
             },
             {
-                "regressor": RandomForestRegressor(),
+                "regressor": RandomForestRegressor(random_state=42),
                 "degree": 2,
                 "with_intercept": True,
                 "prediction_intervals": True,
             },
             {
-                "regressor": RandomForestRegressor(),
+                "regressor": RandomForestRegressor(random_state=42),
                 "degree": 2,
                 "with_intercept": False,
                 "prediction_intervals": True,

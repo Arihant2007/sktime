@@ -158,6 +158,6 @@ class TrendForecaster(BaseForecaster):
         """
         from sklearn.ensemble import RandomForestRegressor
 
-        params_list = [{}, {"regressor": RandomForestRegressor()}]
+        params_list = [{}, {"regressor": RandomForestRegressor(random_state=42)}]
 
         return params_list
